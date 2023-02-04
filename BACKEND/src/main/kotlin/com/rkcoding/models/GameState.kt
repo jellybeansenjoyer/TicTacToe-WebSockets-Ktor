@@ -29,7 +29,7 @@ data class GameState(
         if (playerAtTurn != other.playerAtTurn) return false
         if (!field.contentDeepEquals(other.field)) return false
         if (winningPlayer != other.winningPlayer) return false
-        if (isBoardgull != other.isBoardgull) return false
+        if (isBoardFull != other.isBoardFull) return false
         if (connectedPlayers != other.connectedPlayers) return false
 
         return true
@@ -39,7 +39,7 @@ data class GameState(
         var result = playerAtTurn?.hashCode() ?: 0
         result = 31 * result + field.contentDeepHashCode()
         result = 31 * result + (winningPlayer?.hashCode() ?: 0)
-        result = 31 * result + isBoardgull.hashCode()
+        result = 31 * result + isBoardFull.hashCode()
         result = 31 * result + connectedPlayers.hashCode()
         return result
     }
